@@ -9,6 +9,15 @@ public class TransactionEntity {
     private String batchNumber;
     private BigDecimal count;
 
+    public TransactionEntity() {
+    }
+
+    public TransactionEntity(String clientLayout, String billingCode, String batchNumber) {
+        this.clientLayout = clientLayout;
+        this.billingCode = billingCode;
+        this.batchNumber = batchNumber;
+    }
+
     public String getClientLayout() {
         return clientLayout;
     }
