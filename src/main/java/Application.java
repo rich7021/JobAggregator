@@ -1,3 +1,5 @@
+import service.TxServiceE;
+
 public class Application {
     public static void main(String[] args) {
 
@@ -5,6 +7,7 @@ public class Application {
     }
 
     public void run() {
-
+        TxServiceE serviceE = new TxServiceE();
+        serviceE.start();
     }
 }
