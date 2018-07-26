@@ -1,4 +1,4 @@
-package entity;
+package rifu.demo.jobaggregator.entity;
 
 import java.math.BigDecimal;
 import java.util.Objects;
@@ -66,5 +66,15 @@ public class TransactionEntity {
     public int hashCode() {
 
         return Objects.hash(clientLayout, billingCode, batchNumber, count);
+    }
+
+    @Override
+    public String toString() {
+        return "TransactionEntity{" +
+                "clientLayout='" + clientLayout + '\'' +
+                ", batchNumber='" + batchNumber + '\'' +
+                ", billingCode='" + billingCode + '\'' +
+                ", count=" + count +
+                '}';
     }
 }

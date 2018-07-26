@@ -1,4 +1,6 @@
-import entity.TransactionEntity;
+package rifu.demo.jobaggregator.util;
+
+import rifu.demo.jobaggregator.entity.TransactionEntity;
 
 import java.util.ArrayList;
 import java.util.List;
