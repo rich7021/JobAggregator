@@ -16,6 +16,7 @@ public class TxServiceE extends TxService {
 
     @Override
     public List<TransactionEntity> call() throws Exception {
+        Thread.sleep(5000);
         List<TransactionEntity> mockDataA = DataOM.generateMockData();
         List<TransactionEntity> mockDataB = DataOM.generateMockData();
 
