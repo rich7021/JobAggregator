@@ -15,7 +15,6 @@ public abstract class TxService implements Callable {
     }
 
     public List<TransactionEntity> call() throws Exception {
-        System.out.println("Current call " + this.getClass().getName());
         return CalculateUtil.calculate(data);
     }
 }

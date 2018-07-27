@@ -18,6 +18,14 @@ public class TransactionEntity {
         this.batchNumber = batchNumber;
     }
 
+    public TransactionEntity(String clientLayout, String billingCode, String batchNumber,
+            BigDecimal count) {
+        this.clientLayout = clientLayout;
+        this.billingCode = billingCode;
+        this.batchNumber = batchNumber;
+        this.count = count;
+    }
+
     public String getClientLayout() {
         return clientLayout;
     }
@@ -59,22 +67,19 @@ public class TransactionEntity {
         TransactionEntity that = (TransactionEntity) o;
         return Objects.equals(clientLayout, that.clientLayout) && Objects
                 .equals(billingCode, that.billingCode) && Objects
-                .equals(batchNumber, that.batchNumber) && Objects.equals(count, that.count);
+                .equals(batchNumber, that.batchNumber);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(clientLayout, billingCode, batchNumber, count);
+        return Objects.hash(clientLayout, billingCode, batchNumber);
     }
 
     @Override
     public String toString() {
-        return "TransactionEntity{" +
-                "clientLayout='" + clientLayout + '\'' +
-                ", batchNumber='" + batchNumber + '\'' +
-                ", billingCode='" + billingCode + '\'' +
-                ", count=" + count +
-                '}';
+        return "TransactionEntity{" + "clientLayout='" + clientLayout + '\'' + ", batchNumber='"
+                + batchNumber + '\'' + ", billingCode='" + billingCode + '\'' + ", count=" + count
+                + '}';
     }
 }

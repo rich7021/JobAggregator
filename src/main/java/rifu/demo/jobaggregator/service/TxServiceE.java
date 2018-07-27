@@ -16,16 +16,21 @@ public class TxServiceE extends TxService {
 
     @Override
     public List<TransactionEntity> call() throws Exception {
-        TxServiceA serviceA = new TxServiceA(DataOM.generateMockData());
-//        TxServiceB serviceB = new TxServiceB(DataOM.generateMockData());
-        FutureTask<List<TransactionEntity>> futureTaskA = new FutureTask<List<TransactionEntity>>(serviceA);
-//        FutureTask<List<TransactionEntity>> futureTaskB = new FutureTask<List<TransactionEntity>>(serviceB);
+        List<TransactionEntity> mockDataA = DataOM.generateMockData();
+        List<TransactionEntity> mockDataB = DataOM.generateMockData();
+
+        TxServiceA serviceA = new TxServiceA(mockDataA);
+        TxServiceB serviceB = new TxServiceB(mockDataB);
+        FutureTask<List<TransactionEntity>> futureTaskA =
+                new FutureTask<List<TransactionEntity>>(serviceA);
+        FutureTask<List<TransactionEntity>> futureTaskB =
+                new FutureTask<List<TransactionEntity>>(serviceB);
 
         Application.executorService.submit(futureTaskA);
-//        Application.executorService.submit(futureTaskB);
+        Application.executorService.submit(futureTaskB);
 
         List<TransactionEntity> result = futureTaskA.get();
-//        result.addAll(futureTaskB.get());
+        result.addAll(futureTaskB.get());
 
         return CalculateUtil.calculate(result);
     }
