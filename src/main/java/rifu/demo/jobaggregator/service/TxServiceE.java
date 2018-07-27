@@ -21,10 +21,8 @@ public class TxServiceE extends TxService {
 
         TxServiceA serviceA = new TxServiceA(mockDataA);
         TxServiceB serviceB = new TxServiceB(mockDataB);
-        FutureTask<List<TransactionEntity>> futureTaskA =
-                new FutureTask<List<TransactionEntity>>(serviceA);
-        FutureTask<List<TransactionEntity>> futureTaskB =
-                new FutureTask<List<TransactionEntity>>(serviceB);
+        FutureTask<List<TransactionEntity>> futureTaskA = new FutureTask<List<TransactionEntity>>(serviceA);
+        FutureTask<List<TransactionEntity>> futureTaskB = new FutureTask<List<TransactionEntity>>(serviceB);
 
         Application.executorService.submit(futureTaskA);
         Application.executorService.submit(futureTaskB);

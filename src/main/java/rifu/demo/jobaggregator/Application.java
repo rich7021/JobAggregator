@@ -21,11 +21,10 @@ public class Application {
 
     public void run() throws ExecutionException, InterruptedException {
         TxServiceE serviceE = new TxServiceE();
-        FutureTask<List<TransactionEntity>> futureTaskE =
-                new FutureTask<List<TransactionEntity>>(serviceE);
         TxServiceF serviceF = new TxServiceF();
-        FutureTask<List<TransactionEntity>> futureTaskF =
-                new FutureTask<List<TransactionEntity>>(serviceF);
+
+        FutureTask<List<TransactionEntity>> futureTaskE = new FutureTask<List<TransactionEntity>>(serviceE);
+        FutureTask<List<TransactionEntity>> futureTaskF = new FutureTask<List<TransactionEntity>>(serviceF);
 
         executorService.submit(futureTaskE);
         executorService.submit(futureTaskF);
@@ -34,6 +33,7 @@ public class Application {
         List<TransactionEntity> resultE = futureTaskE.get();
         resultE.sort((o1, o2) -> CalculateUtil.compare(o1, o2));
         resultE.forEach(o -> System.out.println(o));
+
         System.out.println("=========F=========");
         List<TransactionEntity> resultF = futureTaskF.get();
         resultF.sort((o1, o2) -> CalculateUtil.compare(o1, o2));
